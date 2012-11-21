@@ -1,0 +1,296 @@
+* { margin: 0; padding: 0; }
+
+html {
+}
+
+body {
+  background: #eee0c7;
+  background-image: url(Images/BodyBackground.png);
+  font: 14px "Lato", "Helvetica", "Arial", sans-serif;
+  line-height:1.4;
+  color: #553f19;
+  width: 100%;
+  margin-top:0;
+}
+
+.small {
+  font-size:13px;
+}
+
+#everything {
+  width: 800px;
+  
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height:100%;
+}
+
+#header {
+  background-image: url(Images/Header.png);
+  width:800px;
+  height:78px;
+}
+
+#header {
+  position: relative;
+}
+
+#header h1 {
+  font: 40px "Finger Paint", "Helvetica", sans-serif;
+  color: #fff;
+  position:absolute;
+  left: 35px;
+  top: -8px;
+}
+
+#header h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#header h1 a:hover {
+  color: #fad595;
+}
+
+#header h3 {
+  font: 16px "lato","Helvetica", sans-serif;
+  color: #aa8d5a;
+  position:absolute;
+  left: 42px;
+  top: 54px;
+}
+
+.menu {
+  position: absolute;
+  left: 200px;
+  width: 556px;
+  font: 14px "lato","Helvetica", sans-serif;
+  text-align:right;
+  font-weight: bold;
+  
+}
+
+#header .menu {
+  top: 56px;
+}
+
+.menu a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu a:hover {
+  color: #fad595;
+  text-decoration: none;
+}
+
+#footer {
+  background: #553F19;
+  width:800px;
+  height:40px;
+  position:relative;
+  color:#fff;
+  font: 11px "Helvetica", sans-serif;
+}
+
+#footerShadow {
+  position:absolute;
+  background-image: url(Images/FooterTop.png);
+  width:800px;
+  height:36px;
+}
+
+#footer .menu {
+  top: 15px;
+}
+
+#footer .author {
+  font: 18px "Lato", "Helvetica", "Arial", sans-serif;
+  color: #aa8d5a;
+  position:absolute;
+  left:45px;
+  top:10px;
+}
+
+#footer .author a {
+  color: inherit;
+}
+
+#body {
+  margin-left:31px;
+  margin-right:31px;
+  margin-top:30px;
+  margin-bottom:35px;
+}
+
+.example {
+  font: 16px "Times New Roman", "Times", serif;
+  width:735px;
+  margin-left:-10px;
+}
+
+.example p {
+  margin:0;
+  color:#444;
+}
+
+.example code {
+  font-size:12px;
+  color:#888;
+}
+
+.example code b {
+  font-weight:bold;
+  color:#222;
+}
+
+.exampleTop {
+  background-image: url(Images/ExampleTop.png);
+  width:735px;
+  height:9px;
+}
+
+.exampleCenter {
+  background-image: url(Images/ExampleCenter.png);
+  width:655px;
+  padding-top:10px;
+  padding-left:40px;
+  padding-right:40px;
+  padding-bottom:8px;
+}
+
+.exampleBottom {
+  background-image: url(Images/ExampleBottom.png);
+  width:735px;
+  height:25px;
+}
+
+p {
+  margin-top:15px;
+  margin-bottom:15px;
+}
+
+.small p {
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+a {
+  color: #c25106;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #a24106;
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+  margin-top:5px;
+}
+
+ul.dotted {
+  list-style-type: disc;
+  margin-left:24px;
+}
+
+li {
+  margin-top:2px;
+}
+
+ul.dotted li {
+  margin-top:6px;
+}
+
+#body h2 {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: "Helvetica" , sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+
+
+#body h3 {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: -20px;
+
+}
+
+
+#body h4 {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+
+strong {
+  font-weight: bold;
+  color: #e00;
+}
+
+
+
+.small pre {
+    
+    font-family: monospace;
+    border: 1px solid #111;
+    padding: 5px;
+    margin-left:0px;
+    margin-top:12px;
+    margin-bottom:12px;
+}
+
+.code {
+    background-color:rgba(255,255,255,0.18);
+    background: #fff;
+}
+
+.bash {
+    background: #333;
+    color: #fff;
+}
+
+
+.small img {
+    max-width: 720px;
+    padding: 5px;
+    background: #eee;
+    border: 1px solid #ddd;
+}
+
+#compare td {
+    padding: 20px;
+    width: 240px;
+    font-size: 16px;
+}
+
+#compare h3 {
+    font-size: 16px;
+    margin: 20px;
+    text-align: left;
+}
+
+#compare .show {
+    display:none; 
+    position: absolute; 
+    z-index:1;
+}
+
+
+#compare a:hover {
+    text-decoration: none;
+}
+
+
+#compare a:hover .show{
+    display: block;
+}
