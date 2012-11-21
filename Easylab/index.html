@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="css/syntax.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
+    <title>Easylab</title>
+
+</head>
+
+<body>
+
+<div id="everything">
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- header -->
+
+<div id="header">
+
+<h1><a href="./">Easylab</a></h1>
+<h3>make lab a little easier</h3>
+
+<div class="menu">
+    <a href="guide.html">Getting Started</a> &nbsp; &nbsp;
+    <a href="commands.html">Commands</a> &nbsp; &nbsp;
+    <a href="download.html">Download</a> &nbsp; &nbsp;
+    <a href="mailto:onesuperclark@gmail.com">Feedback</a>
+</div>
+
+</div> <!-- header -->
+    
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- body -->
+
+<div id="body" class="small">
+
+<h3>Welcome to Easylab</h3>
+
+<p>Easylab is a simple,convenient tool to make lab a little easier. It records the result as well as the arguments of a program you write, stores them in a database, and visualizes them with a simple, SQL-style query. It can be your good lab assistant.</p>
+
+
+<h3>How Can It Help?</h3>
+
+<table id="compare">
+
+<tr>
+
+<th><h3>When you are</h3></th>
+<th><h3>You used to</h3></th>
+<th><h3>With Easylab</h3></th>
+
+</tr>
+
+<tr>
+<td>logging data from your program</td>
+<td><a href="#">handle the file by yourself
+
+
+
+<div class="show">
+<pre class="syntax">
+<span class="n">FILE</span><span class="o">*</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;./../test.log&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">fp</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Cannot open the test.log.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+     <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s">&quot;%s</span><span class="se">\t</span><span class="s">%s</span><span class="se">\t</span><span class="s">%u</span><span class="se">\t</span><span class="s">%u</span><span class="se">\t</span><span class="s">%u</span><span class="se">\t</span><span class="s">%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">graph_type</span><span class="p">,</span> <span class="n">graph_name</span><span class="p">,</span>
+   	 <span class="n">num_of_nodes</span><span class="p">,</span> <span class="n">num_of_edges</span><span class="p">,</span> <span class="n">num_of_levels</span><span class="p">,</span> <span class="n">time_used</span><span class="p">);</span>
+
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span></pre>
+
+</div>
+</a>
+
+
+
+
+</td>
+<td><a href="#">let Easylab help
+
+
+<div class="show">
+  <pre class="syntax">
+<span class="n">Easylab</span><span class="o">*</span> <span class="n">e</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Easylab</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">);</span>
+<span class="n">e</span><span class="o">-&gt;</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;type=%s, name=%s, nodes=%d, edges=%d, levels=%d, time=%f&quot;</span><span class="p">,</span>
+   	 <span class="n">graph_type</span><span class="p">,</span> <span class="n">graph_name</span><span class="p">,</span> <span class="n">num_of_nodes</span><span class="p">,</span> <span class="n">num_of_edges</span><span class="p">,</span> <span class="n">num_of_levels</span><span class="p">,</span> <span class="n">time_used</span><span class="p">);</span></pre>
+</div>
+
+</a>
+
+</td>
+</tr>
+
+<tr>
+<td>executing program in batch</td>
+<td>write a <a href="#">shell script to do so
+<div class="show">
+<pre class="syntax"><span class="k">for </span>i in 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024
+<span class="k">do</span>
+
+<span class="c"># regular</span>
+./baseline ../../test_case/regular/RGL1 <span class="nv">$i</span>
+./baseline ../../test_case/regular/RGL2 <span class="nv">$i</span>
+./baseline ../../test_case/regular/RGL3 <span class="nv">$i</span>
+./baseline ../../test_case/regular/RGL4 <span class="nv">$i</span>
+./baseline ../../test_case/regular/RGL5 <span class="nv">$i</span>
+./baseline ../../test_case/regular/RGL6 <span class="nv">$i</span>
+./baseline ../../test_case/regular/RGL7 <span class="nv">$i</span>
+./baseline ../../test_case/regular/RGL8 <span class="nv">$i</span>
+./baseline ../../test_case/regular/RGL9 <span class="nv">$i</span>
+./baseline ../../test_case/regular/RGL10 <span class="nv">$i</span>
+
+<span class="k">done</span>
+</pre>
+</div>
+</a>
+
+
+</td>
+<td>use a <a href="#">single command
+
+<div class="show">
+<pre class="bash">
+autorun ./test 1,2,4,8,16,32,64,128,256,512,1024
+</pre>
+</div>
+
+</a>
+</td>
+</tr>
+
+<tr>
+<td>visualizing data</td>
+<td>
+
+<ol>
+<li>write a <a href="f">script 
+
+<div class="show">
+<pre class="syntax"><span class="kn">import</span> <span class="nn">string</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s">&quot;baseline2&quot;</span>
+<span class="n">file1</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">a</span>,<span class="n">b</span>,<span class="n">c</span>,<span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>,<span class="p">[]</span>,<span class="p">[]</span>,<span class="p">[]</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+      <span class="n">line</span> <span class="o">=</span> <span class="n">file1</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
+         <span class="k">break</span>   
+      <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="mi">5</span><span class="p">]))</span>
+         <span class="k">elif</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="mi">5</span><span class="p">]))</span>
+         <span class="k">elif</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="mi">5</span><span class="p">]))</span>         
+         <span class="k">else</span><span class="p">:</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="mi">5</span><span class="p">]))</span>          
+         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s">&quot;.dat&quot;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+      <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s">&#39; &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span>  <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+      <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre>
+</div>
+</a>
+
+
+to turn the log data to a <a href="#">specific format
+
+
+<div class="show">
+<pre class="syntax"><span class="k">set</span> <span class="nb">terminal</span> <span class="n">png</span> <span class="n">nocrop</span> <span class="n">enhanced</span> <span class="n">font</span> <span class="s">&quot;/usr/share/fonts/truetype/msttcorefonts/arial.ttf&quot;</span> <span class="mi">11</span> <span class="n">size</span> <span class="mi">620</span><span class="o">,</span><span class="mi">420</span> 
+<span class="k">set</span> <span class="nb">output</span> <span class="s">&#39;baseline2.png&#39;</span>
+<span class="k">set</span> <span class="nb">datafile</span> <span class="n">missing</span> <span class="s">&#39;-&#39;</span>
+<span class="k">set</span> <span class="nb">style</span> <span class="n">data</span> <span class="n">linespoints</span>
+<span class="k">set</span> <span class="nb">title</span> <span class="s">&quot;CPU Baseline with Changing Thread Number&quot;</span>
+<span class="k">set</span> <span class="nb">xrange</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">21</span><span class="p">]</span>
+<span class="k">set</span> <span class="nb">yrange</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">1100</span><span class="p">]</span>
+<span class="k">set</span> <span class="nb">xlabel</span> <span class="s">&quot;Thread Number&quot;</span>
+<span class="k">set</span> <span class="nb">ylabel</span> <span class="s">&quot;Elapsed Time (ms)&quot;</span>
+<span class="k">set</span> <span class="nb">xtics</span> <span class="n">auto</span> <span class="mi">2</span> <span class="n">nomirror</span>
+<span class="k">set</span> <span class="nb">ytics</span> <span class="n">auto</span> <span class="mi">200</span> <span class="n">nomirror</span>
+<span class="k">set</span> <span class="nb">mxtics</span> <span class="mi">1</span>
+<span class="k">set</span> <span class="nb">mytics</span> <span class="mi">2</span>
+<span class="k">plot</span> <span class="s">&#39;baseline2.dat&#39;</span> <span class="nb">using</span> <span class="mi">1</span><span class="o">:</span><span class="mi">2</span> <span class="nb">t</span> <span class="s">&quot;RGL1&quot;</span><span class="o">,</span> <span class="s">&#39;&#39;</span> <span class="nb">using</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span> <span class="nb">t</span> <span class="s">&quot;IRGL1&quot;</span><span class="o">,</span> <span class="s">&#39;&#39;</span> <span class="nb">using</span> <span class="mi">1</span><span class="o">:</span><span class="mi">4</span> <span class="nb">t</span> <span class="s">&quot;BAY&quot;</span><span class="o">,</span> <span class="s">&#39;&#39;</span> <span class="nb">using</span> <span class="mi">1</span><span class="o">:</span><span class="mi">5</span> <span class="nb">t</span> <span class="s">&quot;SW1&quot;</span> 
+</pre>
+</div>
+</a>
+
+
+which can be used by a CLI chart tool, like Gnuplot
+
+
+</li>
+<li>copy the data to the <a href="#">columns
+
+<div class="show">
+<img src="Images/excel.png" />
+</div>
+
+</a>
+ of a GUI chart tool, like Excel</li>
+</ol>
+</td>
+
+<td>use a <a href="#">single query
+
+<div class="show">
+<pre class="bash">
+plot thread,time from test
+</pre>
+</div>
+
+</a>
+!</td>
+</tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Gallaries</h3>
+
+<p>Here are some figures which Easylab can present:</p>
+
+<h4>Line Charts</h4>
+<img src="Images/plot1.png" width="350px"/>
+<img src="Images/plot2.png" width="350px"/>
+
+<h4>Bar Charts</h4>
+<img src="Images/bar1.png" height="240px" width="350px"/>
+<img src="Images/bar2.png" height="240px" width="350px"/>
+
+
+</div> <!-- body -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- footer -->
+
+<div id="footer">
+<div id="footerShadow"></div>
+
+<div class="author"><a href="http://blog.chengyichao.info/">onesuper</a></div>
+
+<div class="menu">
+    <a href="guide.html">Getting Started</a> &nbsp; &nbsp;
+    <a href="commands.html">Commands</a> &nbsp; &nbsp;
+    <a href="download.html">Download</a> &nbsp; &nbsp;
+    <a href="mailto:onesuperclark@gmail.com">Feedback</a>
+</div>
+
+</div> <!-- footer -->
+
+
+</div> 
+
+
+
+</body>
+
+</html>

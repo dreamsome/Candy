@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+	 <link href="css/syntax.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
+    <title>Easylab::Guide</title>
+
+</head>
+
+<body>
+
+<div id="everything">
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- header -->
+
+<div id="header">
+
+<h1><a href="./">Easylab</a></h1>
+<h3>make lab a little easier</h3>
+
+<div class="menu">
+    <a href="guide.html">Getting Started</a> &nbsp; &nbsp;
+    <a href="commands.html">Commands</a> &nbsp; &nbsp;
+    <a href="download.html">Download</a> &nbsp; &nbsp;
+    <a href="mailto:onesuperclark@gmail.com">Feedback</a>
+</div>
+
+</div> <!-- header -->
+    
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- body -->
+
+<div id="body" class="small">
+
+
+  <h2>Getting Started</h2>
+
+  <h3>1. Install Easylab in Your Code</h3>
+
+  <p>First you need to add some lines in your code:</p>
+
+  <h4>Python</h4>
+
+  <pre class="syntax">
+<span class="kn">import</span> <span class="nn">easylab.easylab</span> <span class="kn">as</span> <span class="nn">e</span>
+
+<span class="n">easylab</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">Easylab</span><span class="p">(</span><span class="s">&quot;fibonacci&quot;</span><span class="p">)</span> 
+<span class="n">easylab</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;n=</span><span class="si">%d</span><span class="s">, time=</span><span class="si">%f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">time</span><span class="p">))</span>     <span class="c"># log it</span></pre>
+
+  <h4>C++</h4>
+  
+
+  <pre class="syntax">
+<span class="cp">#include &quot;easylab.h&quot;</span>
+
+<span class="n">Easylab</span><span class="o">*</span> <span class="n">e</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Easylab</span><span class="p">(</span><span class="s">&quot;fibonacci&quot;</span><span class="p">);</span>
+<span class="n">e</span><span class="o">-&gt;</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;n=%d, time=%f&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">time</span><span class="p">);</span>      <span class="c1">// log it</span>
+</pre>
+
+
+  <h3>2. Fire up the Console</h3>
+
+
+
+
+  <p>Then you can do everything in an interactive console. Assume you are in the directory of Easylab:</p>
+
+  <pre class="bash">
+$ python scripts/console.py
+=============================================
+easylab 0.1.0
+Type "help" for more information.</pre>
+
+
+  <h3>3. Run</h3>
+
+
+   <p>The program <b>fibonacci</b> takes only one argument <i>n</i>, which is from 1 to 30.</p>
+  <pre class="bash">
+easylab> autorun fibonacci 1:30</pre>
+
+  <p>Now you can check out the results in database:</p>
+  <pre class="bash">
+easylab> show fibonacci
+        time|            n| 
+    0.028133|            1| 
+    0.028849|            2| 
+    0.031948|            3| 
+    0.031948|            4| 
+    0.037193|            5| 
+    0.035048|            6|
+...</pre>
+
+
+
+  <h3>4. Visualize!</h3>
+  
+  <p>Say if you want see how the argument <i>n</i> effects the <i>time</i>, use
+ <a href="commands.html#plot">plot</a> command.</p>
+
+  <pre class="bash">
+easylab> plot N, time from fibonacci</pre>
+
+
+  <p>Then you get this on the screen:</p>
+
+  <img src="Images/fib_square.png" />
+
+</div> <!-- body -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- footer -->
+
+<div id="footer">
+<div id="footerShadow"></div>
+
+<div class="author"><a href="http://blog.chengyichao.info/">onesuper</a></div>
+
+<div class="menu">
+    <a href="guide.html">Getting Started</a> &nbsp; &nbsp;
+    <a href="commands.html">Commands</a> &nbsp; &nbsp;
+    <a href="download.html">Download</a> &nbsp; &nbsp;
+    <a href="mailto:onesuperclark@gmail.com">Feedback</a>
+</div>
+
+</div> <!-- footer -->
+
+
+</div> 
+
+
+
+
+</body>
+
+</html>
