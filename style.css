@@ -53,6 +53,8 @@ h4 {
 
 .navi ul {
     list-style-type: none;
+    padding: 0px;
+    margin: 0px;
 }
 
 pre {
@@ -290,11 +292,10 @@ code {
 
 
 .tocview {
-    position:absolute;
+    
     padding: 2px;
-    width: 250px;
-    margin-left: -280px;
-    margin-top: 40px;
+    //width: 250px;
+    margin-left: 10px;
 
 }
 
