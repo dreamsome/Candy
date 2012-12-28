@@ -1,0 +1,349 @@
+body {
+    color: #444;
+    margin: 0;
+    font: normal 15px/1.75 "TIBch", "Grotesque MT W01", "Helvetica Neue", "Hiragino Sans GB", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+
+.container {
+    width: 550px;
+    margin: 0px auto;
+
+}
+
+
+a {
+    color: #9F9F9F;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+h4 {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.navi {
+    font-size: 15px;
+    margin-left: -280px;
+    width: 250px;
+    position: absolute;
+    top: 40px;
+}
+
+.navi a {
+    color: #999;
+    text-decoration:none;
+}
+
+.navi a:hover {
+    color: #444;
+    text-decoration:none;
+}
+
+
+.navi ul {
+    list-style-type: none;
+}
+
+pre {
+    font-family: Menlo,Monaco,monospace;
+    font-size: 14px;
+    border: 0px;
+    padding: 0px;
+    margin: 20px;
+}
+
+p img {
+    max-width: 550px;
+ 
+}
+
+.titleline {
+}
+
+
+
+
+
+blockquote {
+    margin: 20px 20px 20px 20px;
+    font-style: italic;
+}
+
+.pagetitle h1{
+    color: #333;
+    font-weight: normal;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.container .titleline a.about {
+    text-decoration: none;
+    font-size:16px;
+    color: #999;
+    font-weight: bold;
+}
+
+
+.container .titleline a.about:hover {
+    text-decoration: none;
+    color: #333;
+}
+
+
+.title {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 60px;
+    font-family: "Grotesque MT W01 Bold", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "WenQuanYi Micro Hei", "Microsoft YaHei", SimSun, sans-serif;
+    padding-bottom: 2px;
+}
+
+.title a {
+    color: black;
+}
+
+.title a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid black;
+}
+
+.postview {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}
+
+p {
+    margin: 0 0 20px;
+}
+
+.allposts {
+    width: 100%;
+    height: 25px;
+    display: block;
+}
+
+
+
+.allposts .postdate {
+    color: #aaa;
+    display: inline-block;
+    width: 90px;
+    margin-right:5px;
+    text-align: right;
+}
+
+.allposts .postlink {
+    margin-left: 2px;
+}
+
+.allpostslink {
+    text-align: center;
+    display: block;
+    margin: 60px 30px 30px 30px;
+}
+
+.allpostslink a {
+    font-weight: bold;
+    padding: 15px;
+    background: #ddd;
+}
+
+
+.allpostslink a:hover {
+    text-decoration: none;
+}
+
+
+.footer{
+    text-align:center;
+    background: #F8F8EE;
+    padding: 2px 0;
+}
+
+
+.the-end-of-the-world {
+    background: #F8F8EE;
+    padding: 2px 5px;
+    text-align: right;
+    color: #DDDDDD;
+}
+
+.the-end-of-the-world  a{
+    color: #333;
+    text-decoration: underline;
+    padding: 2px 2px;
+}
+
+.the-end-of-the-world  a:hover{
+    text-decoration: underline;
+}
+
+
+.row {   
+    margin: 30px 0px 60px 0px;
+}
+
+
+.catelist {
+    float: left;
+    width: 300px;
+    margin-right: 15px;
+}
+
+
+.meta {
+    position: absolute;
+    right: 5px;
+    top: 0px;
+}
+.meta img:hover {
+    opacity: 0.75;
+}
+
+.meta a {
+    text-decoration:none;
+    color: black;
+}
+
+.meta a:hover {
+    text-decoration:none;
+}
+
+.meta .show {
+    display: none;
+    position:absolute;
+    right: 6px;
+    top: 16px;
+    z-index: 1;
+    width: 250px;
+    text-align: right;
+}
+
+.meta a:hover .show {
+    display: block;
+    
+}
+
+
+
+.timestamp {
+    color: #333;
+    margin: 15px -150px 0px 0px;
+    padding: 0 5px;
+    background: #F8F8EE;
+    width: 150px;
+    left: 20px;
+    float: right;
+    position: relative;
+}
+
+.timestamp a {
+    color: #333;
+}
+
+.timestamp a:hover {
+    
+    text-decoration: none;
+}
+
+.blogtitle a {
+    font-size: 30px;
+    font-weight: bold;
+    color:black;
+}
+
+.blogtitle a:hover {
+    text-decoration: none;
+}
+
+code {
+    margin:0px;
+    padding:0px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #999;
+}
+
+.sidenote {
+    display: block;
+    font-size: 12px;
+    background: #F8F8EE;
+    margin-right: -150px;
+    width: 150px;
+    left: 20px;
+    float: right;
+    position: relative;
+}
+
+
+.tocview {
+    position:absolute;
+    padding: 2px;
+    width: 250px;
+    margin-left: -280px;
+    margin-top: 40px;
+
+}
+
+.tocview .toctitle {
+    line-height: 1.3;
+    color: #ccc;
+}
+
+.tocview .toctitle a {
+    font-family: serif;
+    font-size: 10px;
+    font-weight: bold;
+    color: black;
+    text-decoration:none;
+}
+
+
+.tocview .toctitle a:hover {
+    color: black;
+    text-decoration:none;
+}
+
+.category {
+    display: none;
+}
+
+.category ul {
+    margin: 0px;
+    padding: 0px;
+    margin-left: 12px;
+}
+
+.category ul li {
+    font-size: 13px;
+    margin: 3px 0px;
+    line-height: 1.3;
+    padding: 0px;
+    list-style-type: none;
+
+}
+
+hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 3px solid #5151A2;
+}
+
+.lighten {color: #444;}
+
+.ss-controls {float: left;}
+
+.slideshow{ text-align:center; margin: 20px 0px;}
