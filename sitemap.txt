@@ -10,7 +10,7 @@ http://chengyichao.info/how-much-scalability/index.html
 http://chengyichao.info/learnable-programming/index.html
 http://chengyichao.info/processing-js-quickstart/index.html
 http://chengyichao.info/what-is-computer-science/index.html
-
+http://chengyichao.info/how-to-write-a-computer-emulator
 
 
 http://chengyichao.info/cuda-tutorial/index.html
