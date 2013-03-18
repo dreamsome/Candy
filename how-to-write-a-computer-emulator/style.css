@@ -4,7 +4,7 @@
 body {
     background: #ffffff;
     font: normal 14px/1.65 "Verdana", "Helvetica", "Arial", sans-serif;
-		color: #555;
+	color: #555;
     width: 100%;
   	text-align: left;
   	position: relative;
@@ -17,28 +17,28 @@ body {
 }
 .header {
 	padding: 60px 0px 5px 80px;
-	background: #333;
+	background: #DFEDB7;
 }
 
 h1 {
     font: bold 40px/0.9 "borisblackbloxxregular", sans-serif;
     width: 900px;
-    color: #fff;
+    color: #333;
     text-transform: uppercase;
-	  margin-bottom: 20px; 
+	margin-bottom: 20px; 
 }
 
 .meta {
-	color: #fff;
+	color: #777;
 	font-weight: bold;
 }
 .meta a {
-	color: #fff;
+	color: #777;
 	text-decoration: none;
 }
 
 .meta a:hover {
-    color: #fff;
+    color: #999;
     text-decoration:underline;
 }
 
@@ -49,15 +49,13 @@ h1 {
 h2 {
     font: bold 28px/0.9 "borisblackbloxxregular", sans-serif;
     color: #111;
-		height: 40px;
-		margin-top: 40px;
+	height: 40px;
+	margin-top: 40px;
 }
 h3 {
     font: bold 21px/1.0 "Verdana", sans-serif;
-    background: #583799;
-    text-align: center;
     width:100%;
-    color: #fff;
+    color: black;
     padding-top: 5px;
     padding-bottom: 7px;
     margin-top:40px;
@@ -82,12 +80,9 @@ p {
 
 strong {
     font-weight:bold;
-	color: #f00;
+	color: #111;
 }
 
-code {
-	margin: 30px;
-}
 b {
     font-weight:bold;
 	color: #000;
