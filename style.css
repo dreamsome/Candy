@@ -1,9 +1,10 @@
 
 
 body {
-    color: #222;
+    color: #fff;
     margin: 0;
     font: normal 13px/16px Arial, Helvetica, sans-seif;
+    background: black;
 }
 
 .container {
