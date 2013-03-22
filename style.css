@@ -13,7 +13,8 @@ body {
 	display:table-cell;
 	text-align:center;
 	vertical-align:middle;
-
+    background: -webkit-linear-gradient(top, #272727 0%,#444 50%, #444 50%, #272727 100%);
+    background: -moz-linear-gradient(top, #2727272 0%, #444 50%, #444 50%, #272727 100%);
 
 }
 
