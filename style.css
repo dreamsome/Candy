@@ -19,15 +19,20 @@ body {
 }
 
 .container {
-
-
+    margin: 0 auto;
+    width: 95%;
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
 }
 
+h2 {color:white; font-size: 42px; line-height:200%; font-family: 'Knewave', fantasy; font-weight:normal; text-transform: uppercase;}
 
 p {line-height: 1.8; margin:10px 0px;}
 
 a { color: #E01B6A; text-decoration: none; }
 
 a:hover { text-decoration: none;color:#E01B6A;}
+
+img {}
 
 img:hover {opacity:0.5;}
