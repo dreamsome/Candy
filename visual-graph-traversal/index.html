@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Visual Graph Traversal</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  
+  <body>
+    <div class="toc">
+      <ul>
+        <li><a class="top" href="#top">Top &uarr;</a></li>
+        <li><a href="#bfs" title="Breath-first Search">BFS</a></li>
+        <li><a href="#cc" title="Connected Components Labeling with BFS">Components</a></li>
+        <li><a href="#dfs" title="Depth-first Search">DFS</a></li>
+        <li><a href="#cycle" title="Cycle Detection with DFS">Cycle</a></li>
+        <li><a href="#topo" title="Topological Sort">Toposort</a></li>
+        <!--<li><a href="#scc" title="Strongly Connected Components">Strongly</a></li>-->
+        <li><a href="#dijkstra" title="Dijkstra Single-Source Shortest Paths">Dijkstra</a></li>
+        <li><a href="#prim" title="Prim Minimum Spanning Tree">Prim</a></li>
+
+      </ul>
+      <br>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://chengyichao.info/visual-graph-traversal" data-via="chengyichao" data-count="none">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    </div>
+
+
+    <h1>Visual Graph Traversal</h1>
+
+    <h3>Cheng Yichao / April, 2013</h3>
+
+
+    
+    <p>In Computer Science, <a href="http://en.wikipedia.org/wiki/Graph_traversal">graph traversal</a> is a set of problems of visiting all the nodes(or vertices in a graph in a particular manner, updating and/or checking their attributes along the way. </p>
+
+
+
+    <p>Graph is a very common representation in many applications. Graph traversal algorithms provide crucial tools in many computational fields ranging from genomics to electronic design automation(EDA) to social network analysis.</p>
+
+
+    <img style="margin-left: 80px;"src="./img/eda.jpg">
+
+    <p>Generally, graph has more complicated structure than array, list, and tree. The representation of graph could either be adjacency matrix or adjacency list and different data structures are preferred in different situation. For example, adjacency lists are often used to represent sparse graph due to less edge storage. But in this article we will pay more attention to the topology of a graph instead of the underlayer representation. </p>
+
+
+    <p>Traditional algorithm books(like <a href="http://en.wikipedia.org/wiki/Introduction_to_Algorithms">CLRS</a>) "visualize" the process of traversing by presenting a series of snapshots: </p>
+
+    <img src="./img/fig.png">
+
+    <p>And a table to reflect the changes to the intermediate variables, like:</p>
+
+    <img src="./img/table.png">
+
+    <p>OK... They are just books. How could you ask for more?</p>
+
+    <p>But what if we do this?</p>
+
+    <iframe src="./example/index.html" scrolling="no" frameborder="0" width="780" height="300"></iframe>
+
+    <p>It's interactive. And the data are associated with the graph. We tailored <a href="http://getspringy.com/">springy.js</a>, a library using <a href="http://en.wikipedia.org/wiki/Force-directed_graph_drawing">directed forced algorithm</a> to layout graph, to visualize all the algorithms here. The <a href="https://github.com/onesuper/Medusa">codes</a> are  written in JavaScript.</p>
+
+   
+    <p>The visualiztions are intended to help one understand the process of exploration and how the values are updated during traverse.</p>
+ 
+
+    <h2 id="bfs">Breath-first Search</h2>
+
+
+    <p><a href="http://en.wikipedia.org/wiki/Breadth-first_search">Breadth-first search</a>(BFS for short) is a classic  graph algorithm. Given a graph <i>G=(V, E)</i>, and a source vertex <i>s</i>, BFS produces a <b>breath-first tree</b> with the root <i>s</i> and all reachable vertices. The traditional BFS algorithm keeps exploring the tree until each reachable vertex has been assigned a <strong>level</strong> which tells the <b><i>height</i></b> in the tree, or the minimum hoops from the root. (In some cases, algorithm will simply preserve the pointer referencing to the predecessor.)</p>
+
+
+    <p>The main idea of BFS is traversing nodes a graph by level order. All the vertices in level n are visited before the traversal of level n+1 starts. Usually, a <strong>queue</strong>* is used in a serial BFS implementation, to keep the order of nodes being visited.</p>
+
+
+    <p>Let's see a live example. Initially, only the <i>root</i>(node 0) is in the queue(marked pink). In the first iteration, we dequeue the first element in the queue(node 0) and visit it, thus marking node 0 gray. Meanwhile, we find all the nodes adjacent to 0(node 1, 2, 3) and put them onto queue, since they have never been dicovered. In the second iteration, node 1 is dequeued and visited. At the same time, one of its neighbours, node 4, is appended to the queue. However, the other neighbour(node 0) is ignored, since we have visited it before. As you can see, the final result of BFS is a tree.</p>
+
+
+    <iframe src="./bfs/index.html" scrolling="no" frameborder="0" width="780" height="560"></iframe>
+
+
+    <p>It's not hard to see the time complexity of BFS is <i>O(V+E)</i> since each vertex in the graph has been marked twice(first pink, then gray) and each edge has been colored only once. </p>
+    
+
+    <p><strong>Pseudocode:</strong></p>
+    <code>
+      <pre>
+        // start from root
+        Q.enqueue(root);
+        root.color = pink;
+
+        while (!Q.empty()) {
+            u = Q.dequeue();
+            u.color = gray;
+            foreach (v in u.neighbours()) {
+                if (v.color==white) {
+                    v.color = pink;
+                    Q.enqueue(v);
+                }
+            }
+        }</pre></code>
+
+
+     <h2 id="cc">Connected Components Labeling with BFS</h2>
+
+     <p>Breath-first search can be used to find <b>connected components</b> in a graph. <a href="http://en.wikipedia.org/wiki/Connected_component_(graph_theory)">Connected component</a> is a subgraph of <i>G=(V, E)</i>, in which all vertices can reach another. The connected components labeling problem is to find the different connected components in a graph.   </p>
+
+    <p>The algorithm continues starting a BFS journey from an unvisited node until all nodes in the graph have been visited. In the following example, BFS is launched twice. The first BFS starts from vertex 0 as root and the second one begins at 4. In each iteration of BFS, every vertex's ID value is updated to the ID value of his predecessor. Finally, All the vertices in a connected component are labeled with the same ID, which is the ID of BFS tree root.</p>
+
+
+     <iframe src="./cc/index.html" scrolling="no" frameborder="0" width="780" height="560"></iframe>
+
+  
+
+
+
+    <p><strong>Pseudocode:</strong></p>
+     <code>
+      <pre>
+        foreach (node in G) {
+            if(node.color == white)
+                 BFS(node);
+        }</pre></code>
+
+
+    <h2 id="dfs">Depth-first Search</h2>
+
+
+    <p>Breath-first search expands nodes of the same level by one hop. On the contrary, <a href="http://en.wikipedia.org/wiki/Depth-first_search">depth-first search</a>(DFS) explores as far as possible along each existing branch. In effect, DFS keeps entering the first child node of search tree that appears until it encounters a childless node, then it visits the node and <strong>backtracks</strong>, returning to the most recent decovered node.</p>
+
+
+
+    <p>An implementation of DFS can be both recursive and non-recursive(iterative). Here we will introduce the iterative version. The algorithm uses a FILO stack to record the decovered nodes in the halfway.</p>
+
+
+    <p>In the following example, we start a DFS on node 0 as the root. In the first iteration, we dicover node 1 and node 2 and push them into stack(pink). Now the stack looks like [bottom] 0, 2, 1 [top]. In the second iteration, we enter node 1, the first child of node 0, and dicover 5 and 6 and push them into stack. Now the stack looks like [bottom] 0, 2, 1, 6, 5 [top]. Then we enter node 5, the first child of node 1, and find node 4. Since node 4 has no child undiscovered, we visit it(gray) and backtack to node 5, the one appears at the top of stack...</p>
+
+
+
+    <iframe src="./dfs/index.html" scrolling="no" frameborder="0" width="780" height="560"></iframe>
+
+
+
+    <p><strong>Pseudocode:</strong></p>
+    <code>
+      <pre>
+        // start from root
+        S.push(root);
+        root.color = pink;
+
+        while (!S.empty()) {
+            
+            u = S.top();
+            flag = 0;    // has discovered neighbour?
+
+            foreach (v in u.neighbours()) {
+                if (v.color == white) {
+                    v.color = pink;
+                    S.push(v);
+                    flag = 1;
+                }
+            }
+            if (flag == 0) {
+                u.color = black;
+                u.pop();
+            }
+        }</pre></code>
+
+
+    
+    <p>DFS has a time complexity of <i>O(V+E)</i> since each vertex in the graph has been marked twice(first pink, then gray) and each edge has been colored only once. </p>
+
+
+    <h2 id="cycle">Cycle Detection with DFS</h2>
+
+    <p>It is convenient to use depth-first search to check whether or not an undirected graph contains a <a href="http://en.wikipedia.org/wiki/Cycle_(graph_theory)">cycle</a>.</p>
+
+
+    <p>In our example, when we arrive at node 4, being aware of that node 3 has been encounterd before(dicoverd by node 2) and what we are traversing now will be a <b>back edge</b> and hence a cycle is detected.</p>
+
+    <iframe src="./cycle/index.html" scrolling="no" frameborder="0" width="780" height="560"></iframe>
+
+
+    <p><strong>Pseudocode:</strong></p>
+    <code>
+      <pre>       
+        foreach (v in u.neighbours()) {
+            if (v.color == white) {
+                v.color = pink;
+                S.push(v);
+                flag = 1;
+            } else if (v.color == pink && u.prev != v) {
+                    alert("cycle detected!");
+            }
+        }</pre></code>
+
+
+
+    <h2 id="topo">Topological Sort with DFS</h2>
+
+
+    <p>A diagraph is <strong>acyclic</strong> if it has no cycles. Such graph is often referred to as a  <a href="http://en.wikipedia.org/wiki/Directed_acyclic_graph">directed acyclic graph</a>, or <b>DAG</b> for short. DAGs can be used to describe the dependencies between tasks. If there is a directed edge in the graph from A to B, that means task A should be performed before task B. In a DAG, if task A depends on B and B depends on C, task A must be depending on C. A reasonable schedule strategy is just a valid sequece for the tasks. </p>
+
+    <p>Say we have 4 instructions to perform. I<sub>1</sub> depends on I<sub>2</sub> and I<sub>3</sub> depends on I<sub>4</sub>. But there's no dependencies between (I<sub>1</sub>, I<sub>3</sub>), (I<sub>1</sub>, I<sub>4</sub>), (I<sub>2</sub>, I<sub>3</sub>) and (I<sub>2</sub>, I<sub>4</sub>). So an instruction sequence of I<sub>2</sub>, I<sub>4</sub>, I<sub>1</sub>, I<sub>3</sub> is acceptable while I<sub>2</sub>, I<sub>3</sub>, I<sub>4</sub>, I<sub>1</sub> is a wrong order.</p>
+
+    <p><a href="http://en.wikipedia.org/wiki/Topological_sorting">Topological sort</a> is the process to find a valid order for a given DAG. The most straightforward way to construct a topological ordering of a DAG is using DFS, which requires linear time. </p>
+
+    <p>The following example is borrowed from <a href="http://en.wikipedia.org/wiki/Introduction_to_Algorithms">CLRS</a>. The DAG describes the dependencies of actions performed when someone is getting dressed. For instance, one should put on socks before he putting shoes on.</p>
+  
+    <p>The property of DFS assures the deeper node in the dependency chain is always visited first. For example, node "undershorts" will not be visited until node "pants" is visited. </p>
+
+    <p>Therefore, DFS gives a feasible topological order of the DAG: shirt(11), tie(10) , socks(8), undershorts(7), pants(6), belt(5), jacket(4), shoes(1). All we have to do is recording the time when a node is visited. </p>
+
+   
+    <iframe src="./topo/index.html" scrolling="no" frameborder="0" width="780" height="560"></iframe>
+    
+
+    <!--
+    <h2 id="scc">Strongly Connected Components</h2>
+
+
+    <p class="sidenote"><img src="./img/strong.jpg" /></p>
+    <p>Given a directed graph <i>G=(V, E)</i>. a <a href="http://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/GraphAlgor/strongComponent.htm">strongly connected component</a>(SCC) of G is a maximal <b>set of vertices</b>, such that for all (u, v) in that set, both u and v are reachable from each other. In other words, two vertices are in the same components if and only if they are reachable from each other.</p>
+
+
+    <p><a href="http://en.wikipedia.org/wiki/Introduction_to_Algorithms">CLRS</a> uses the transpose of G(G<sup>T</sup>) to find the SCC. G<sup>T</sup> is G with all edges reversed. The algorithm is based the observation that the graph G and G<sup>T</sup> have the same SCC.</p>
+
+    -->
+
+    <h2 id="dijkstra">Dijkstra Single-Source Shortest Paths</h2>
+
+
+
+    <p class="sidenote"><img src="./img/road.jpg"></p>
+    <p>The Single-Source Shortest Paths(SSSP for short) is the problem of computing the shortest path distance from a root vertex <i>r</i> to each vertex in a weighed graph.</p>
+
+
+
+    <p>A good anology is when your driving a car among cities, a call to SSSP subroutine can help you find the shortcut to each city. That's why the algorithm is often used in GPS and network routing.</p>
+
+
+
+
+    <p>If the edge weights are all non-negative, then the SSSP problem can be solved with <b>Dijkstra</b> algorithm. Otherwise, <b>Bellman-Ford</b> algorithm can be used instead.</p>
+
+
+    <p>Dijkstra's SSSP explores the graph with a greedy method. In each iteration, the algorithm visits a node with the so-far-smallest distance from root among all the nodes in the graph.</p> 
+
+
+    <p class="sidenote">dist(1) is shorthand for "distance from root to node 1"</p>
+
+    <p>Assume the root is node 0. To start, make the distance to the other node in the graph with infinity(100,000 is large enough in our case). In the first iteration, node 0 is visited. Meanwhile the dist(1)*  is updated to 41 and dist(5) is updated to 29. They are both unreachable before node 0 is visited. In the second iteration, we visit node 5 since it has the smallest distance from root, updating dist(4) to 50, which is the cost if we manage to arrive at node 5(cost 29) first and pay a travel to node 4(cost 21)... After several iterations, we arrive at node 2. This time we are not going to update dist(3), because it costs 132 if we come from 2(cost 50) coming from 3(cost 82) but it only costs 86 if we manage to reach 4(cost 50) and then go to 3(cost 36).</p>
+
+
+    <iframe src="./sssp/index.html" scrolling="no" frameborder="0" width="780" height="560"></iframe>
+
+
+    <p>During the exploration, a priority queue Q is used to maintain the unvisited nodes, which provides an operation to extract the minimum. The time complexity of Dijkstra algorithm is relevant to the implementation of Q. If Q is a linked list or array, then finding minium from Q is a linear search through all nodes in Q, which requires <i>O(V)</i>. But if we use a <a href="http://en.wikipedia.org/wiki/Fibonacci_heap">Fibonacci heap</a> as a priority queue, the search time can be reduced to <i>O(logV)</i>.</p>
+
+
+    <p>Like breath-first search, Dijkstra SSSP produces a tree(shortest-path tree) from the root.</p>
+
+    <p><strong>pseudocode</strong></p>
+
+    <code><pre>
+        // intialize node attributes
+        foreach (v in G) {
+            v.dist = infinity;
+            v.pre = undefined;
+        }
+
+        // all nodes in Q
+        Q = G.all();
+        G.nodes[0].dist = 0;
+        
+        while(!Q.empty()) {
+            u = Q.dequeue();   //u is the smallest distance in dist[]
+            foreach (v in u.neighbours()) {                
+                // update v's dist, if find a shorter path
+                if (u.dist + u.distance_to(v) < v.dist) {
+                    v.dist = u.dist + u.distance_to(v);  
+                    v.pre = u;
+                    Q.reorder();   // since distance changes
+                }
+            }
+        }</pre></code>
+
+
+
+     <h2 id="prim">Prim Minimum Spanning Tree</h2>
+
+     <p><a href="http://en.wikipedia.org/wiki/Prim's_algorithm">Prim's algorithm</a> finds a <a href="http://en.wikipedia.org/wiki/Minimum_spanning_tree">minimum spanning tree</a>(MST) for a connected weighted undirected graph. </p>
+
+     <p>For a given <i>G=(V, E)</i>, a spanning tree is a subgraph of G connecting all the vertices in V and it is a tree. The minimum spanning tree is then the spanning tree with the smallest weight.</p>
+
+     <p>Like Dijkstra's algorthim(SSSP), Prim's algorithm is a greedy strategy, because each time it chooses an edge <i>E=(u, v)</i> with the minimal weight and appends it to the tree. It also uses a priority queue Q to maintain the unvisited nodes. However, the key in Q is the minimal cost if we connect the unvisited node to the spanning tree, while it represents the shortest distance from root in the Dijkstra algorithm. </p>
+
+
+     <iframe src="./mst/index.html" scrolling="no" frameborder="0" width="780" height="560"></iframe>
+
+    <p><strong>pseudocode</strong></p>
+
+    <code><pre>
+        // intialize node attributes
+        foreach (v in G) {
+            v.cost = infinity;
+            v.pre = undefined;
+        }
+
+        // all nodes in Q
+        Q = G.all();
+        G.nodes[0].cost = 0;
+        
+        while(!Q.empty()) {
+            u = Q.dequeue();   //u is the smallest value in cost[]
+            foreach (v in u.neighbours()) {                
+                if (Q.has(v) && u.distance_to(v) < v.cost) {
+                    v.dist = u.distance_to(v);  
+                    v.pre = u;
+                    Q.reorder();   // decreasekey
+                }
+            }
+        }</pre></code>
+     
+     <!--
+     <h2 id="fw">Floyd-Warshall All-pairs shortest Path</h2>
+
+     <iframe src="./apsp/index.html" scrolling="no" frameborder="0" width="780" height="560"></iframe>
+     -->
+
+
+
+
+
+    <br>
+    <br>
+
+
+
+  </body>
+
+
+  
+
+
+  
+
+</html>
