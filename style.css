@@ -19,9 +19,15 @@ body {
 
 }
 
-.container {
+.lean {
+    margin: 0 auto;
+    width: 90%;
     -webkit-transform: rotate(2deg);
     -moz-transform: rotate(2deg);
+}
+
+.container {
+
 }
 
 h2 {color:white; font-size: 32px; line-height:100%; font-family: 'Knewave', fantasy; font-weight:normal; text-transform: uppercase; margin: 80px 0 0 0;}
@@ -56,15 +62,3 @@ img:hover {opacity:0.8; }
     height: 100px;
 }
 
-
-.step {
-    opacity: 0.2;
-    width: 1100px;
-    -webkit-transition: opacity 1s;
-    -moz-transition:    opacity 1s;
-    -ms-transition:     opacity 1s;
-    -o-transition:      opacity 1s;
-    transition:         opacity 1s;
-}
-
-.step.active { opacity: 1; }

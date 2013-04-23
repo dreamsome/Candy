@@ -10,7 +10,7 @@
     <div class="toc">
       <ul>
         <li><a class="top" href="#top">Top &uarr;</a></li>
-        <li><a href="#bfs" title="Breath-first Search">BFS</a></li>
+        <li><a href="#bfs" title="Breadth-first Search">BFS</a></li>
         <li><a href="#cc" title="Connected Components Labeling with BFS">Components</a></li>
         <li><a href="#dfs" title="Depth-first Search">DFS</a></li>
         <li><a href="#cycle" title="Cycle Detection with DFS">Cycle</a></li>
@@ -65,10 +65,10 @@
     <p>The visualiztions are intended to help one understand the process of exploration and how the values are updated during traversal.</p>
  
 
-    <h2 id="bfs">Breath-first Search</h2>
+    <h2 id="bfs">Breadth-first Search</h2>
 
 
-    <p><a href="http://en.wikipedia.org/wiki/Breadth-first_search">Breadth-first search</a>(BFS for short) is a classic  graph algorithm. Given a graph <i>G=(V, E)</i>, and a source vertex <i>s</i>, BFS produces a <b>breath-first tree</b> with the root <i>s</i> and all reachable vertices. The traditional BFS algorithm keeps exploring the tree until each reachable vertex has been assigned a <strong>level</strong> which tells the <b><i>height</i></b> in the tree, or the minimum hoops from the root. (In some cases, algorithm will simply preserve the pointer referencing to the predecessor.)</p>
+    <p><a href="http://en.wikipedia.org/wiki/Breadth-first_search">Breadth-first search</a>(BFS for short) is a classic  graph algorithm. Given a graph <i>G=(V, E)</i>, and a source vertex <i>s</i>, BFS produces a <b>breadth-first tree</b> with the root <i>s</i> and all reachable vertices. The traditional BFS algorithm keeps exploring the tree until each reachable vertex has been assigned a <strong>level</strong> which tells the <b><i>height</i></b> in the tree, or the minimum hoops from the root. (In some cases, algorithm will simply preserve the pointer referencing to the predecessor.)</p>
 
 
     <p>The main idea of BFS is traversing nodes a graph by level order. All the vertices in level n are visited before the traversal of level n+1 starts. Usually, a <strong>queue</strong>* is used in a serial BFS implementation, to keep the order of nodes being visited.</p>
@@ -104,7 +104,7 @@
 
      <h2 id="cc">Connected Components Labeling with BFS</h2>
 
-     <p>Breath-first search can be used to find <b>connected components</b> in a graph. <a href="http://en.wikipedia.org/wiki/Connected_component_(graph_theory)">Connected component</a> is a subgraph of <i>G=(V, E)</i>, in which all vertices can reach another. The connected components labeling problem is to find the different connected components in a graph.   </p>
+     <p>Breadth-first search can be used to find <b>connected components</b> in a graph. <a href="http://en.wikipedia.org/wiki/Connected_component_(graph_theory)">Connected component</a> is a subgraph of <i>G=(V, E)</i>, in which all vertices can reach another. The connected components labeling problem is to find the different connected components in a graph.   </p>
 
     <p>The algorithm continues starting a BFS journey from an unvisited node until all nodes in the graph have been visited. In the following example, BFS is launched twice. The first BFS starts from vertex 0 as root and the second one begins at 4. In each iteration of BFS, every vertex's ID value is updated to the ID value of his predecessor. Finally, All the vertices in a connected component are labeled with the same ID, which is the ID of BFS tree root.</p>
 
@@ -127,7 +127,7 @@
     <h2 id="dfs">Depth-first Search</h2>
 
 
-    <p>Breath-first search expands nodes of the same level by one hop. On the contrary, <a href="http://en.wikipedia.org/wiki/Depth-first_search">depth-first search</a>(DFS) explores as far as possible along each existing branch. In effect, DFS keeps entering the first child node of search tree that appears until it encounters a childless node, then it visits the node and <strong>backtracks</strong>, returning to the most recent decovered node.</p>
+    <p>Breadth-first search expands nodes of the same level by one hop. On the contrary, <a href="http://en.wikipedia.org/wiki/Depth-first_search">depth-first search</a>(DFS) explores as far as possible along each existing branch. In effect, DFS keeps entering the first child node of search tree that appears until it encounters a childless node, then it visits the node and <strong>backtracks</strong>, returning to the most recent decovered node.</p>
 
 
 
@@ -259,7 +259,7 @@
     <p>During the exploration, a priority queue Q is used to maintain the unvisited nodes, which provides an operation to extract the minimum. The time complexity of Dijkstra algorithm is relevant to the implementation of Q. If Q is a linked list or array, then finding minium from Q is a linear search through all nodes in Q, which requires <i>O(V)</i>. But if we use a <a href="http://en.wikipedia.org/wiki/Fibonacci_heap">Fibonacci heap</a> as a priority queue, the search time can be reduced to <i>O(logV)</i>.</p>
 
 
-    <p>Like breath-first search, Dijkstra SSSP produces a tree(shortest-path tree) from the root.</p>
+    <p>Like breadth-first search, Dijkstra SSSP produces a tree(shortest-path tree) from the root.</p>
 
     <p><strong>pseudocode</strong></p>
 

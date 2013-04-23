@@ -7,18 +7,15 @@
     <meta name="author" content="Cheng Yichao">
 
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="assets/css/animation.css">
-    <link rel="stylesheet" href="assets/css/basic-animations.css">
-        <link href="style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <link href="style.css" rel="stylesheet" type="text/css" media="all" />
 	<link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>		
   </head>
 
 <body>    
 
-
-
-    <div id="jmpress">
-      <div id="first"class="step" data-x="0" data-y="0" data-rotate="0" data-scale="1">
+  <div class="lean">
+      <div id="cover" >
           <div class="container">
             <h2>Cheng Yichao</h2>
             <h4>“Dreams are today's answers to tomorrow's questions.” - Edgar Cayce </h4>
@@ -28,7 +25,7 @@
       </div>
 
       
-      <div class="step" data-x="0" data-y="400" data-rotate="0" data-scale="1">
+      <div id="tutorial" >
         <div class="container">
           <h2>Tutorial</h2>
           <h4>“Live as if you were to die tomorrow. Learn as if you were to live forever.” - Mahatma Gandhi</h4>
@@ -42,7 +39,9 @@
 
       </div>
 
-      <div class="step" data-x="0" data-y="800" data-rotate="0" data-scale="1">
+
+
+      <div id="software" >
         <div class="container">
           <h2>Software</h2>
           <h4>“Man is a tool-using animal.... Without tools he is nothing, with tools he is all.” - Thomas Carlyle</h4>
@@ -60,7 +59,7 @@
 
 
 
-      <div class="step" data-x="0" data-y="1300" data-rotate="0" data-scale="1">
+      <div id="art">
         <div class="container">
           
           <h2>Art / Words / Photos</h2>
@@ -77,7 +76,7 @@
 
 
 
-      <div class="step" data-x="0"  data-y="1700" data-rotate="0" data-scale="1">
+      <div id="funny" >
         <div class="container">
 
           <h2>Funny Stories, aka "Novel"</h2>
@@ -92,7 +91,10 @@
       </div>
 
 
-      <div id="last" class="step" data-x="0" data-y="2100" data-rotate="0" data-scale="1">
+
+
+
+      <div id="link">
         <div class="container">
           
           <h2>Other People Made These Things</h2>
@@ -101,34 +103,19 @@
           <p class="tiny">
 
             <a href="/learnable-programming"><img src="display/lp.jpg"></a>
+            <a href="http://www.cs.virginia.edu/~robins/YouAndYourResearch.html"><img src="display/research.jpg"></a>
           </p>
         </div>
       </div>
 
-    </div>
+
+
+    
+ 
+ </div>
 
 
 
-
-
-
-
-
-  </div>
-
-</div>
-
-
-
-<script src="assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
-<script src="assets/js/jmpress.js" type="text/javascript"></script>
-<script>
-$(function() {
-  $('#jmpress').jmpress();
-  $('#jmpress').jmpress("route", "#last", true);
-  $('#jmpress').jmpress("route", "#first", true, true);
-});
-</script>
 
 
   <script type="text/javascript">
