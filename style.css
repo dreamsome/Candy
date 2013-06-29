@@ -1,61 +1,84 @@
+jm* {margin: 0; padding: 0;}
 html {
-    display:table;
-    height:100%;
-    width:100%;
-    background-color: #E0E0E0;
+	display:table;
+	height:100%;
+	width:100%;
 }
 body {
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
-    background-image: url(Image/bg.png);
-    background-repeat: repeat;
-    background-position: center center;
-    display:table-cell;
+    background: #444;
+    background-Image: url("Image/cloth.png");
+    margin: 0;
+    font: normal 13px/16px "Trebuchet MS", sans-seif;    
+    color: white;
+	display:table-cell;
+	vertical-align:middle;
+}
+
+.lean {
+    margin: 0;
     text-align:center;
-    vertical-align:middle;
+    width: 95%;
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-    only screen and (-o-min-device-pixel-ratio: 3/2),
-    only screen and (min--moz-device-pixel-ratio: 1.5),
-    only screen and (min-device-pixel-ratio: 1.5) {
-        body {
-        background-image: url(../img/rockywall@2x.png);
-        background-size: 500px 500px;
-    }
-}
+
 h1 {
-    font-size: 92px;
-    text-shadow: 0 2px 4px #FFF;
-    margin-top: -10px;
-    margin-bottom: 30px;
-    letter-spacing: 0;
+    font-size: 40px; 
+    line-height:60px;
+    font-family: 'Knewave', fantasy;
+    font-weight:normal;
+    text-transform: uppercase;
 }
-h2 {
-    font-weight: 500;
-    text-shadow: 0 2px 4px #FFF;
+
+
+.quote { margin:10px auto;font-weight:bold; width: 660px;}
+
+p {line-height: 1.8; margin:40px 0px;}
+
+a { color: #E01B6A; text-decoration: none; }
+
+a:hover { text-decoration: none;color:#E01B6A;}
+
+img {
+    mask-image: url("display/shadow.png");
+    -webkit-mask-image: url("display/shadow.png");
+    -moz-mask-image: url("display/shadow.png");
 }
-p {
-    font-size: 14px;
-    letter-spacing: 0;
+
+img:hover {opacity:0.8; }
+
+
+.medium img {
+    width:165px;
+    height: 138px;
 }
-a {
-    text-decoration: none;
-    color: rgb(96, 0, 0);
+
+.small img {
+    width:150px;
+    height: 125px;
 }
-a:hover {
-    text-decoration: underline;
-    color: rgb(138, 0, 0);
+
+.tiny img {
+    width:120px;
+    height: 100px;
 }
-a:active {
-    color: rgb(48, 0, 0);
-    text-decoration: none;
+
+
+.leading {
+    font-size: 24px;
+    font-family:'Knewave', fantasy;
+    text-transform: uppercase;
+    vertical-align: top;
+    float: left;
+    line-height: 30px;
+    -webkit-transform: rotate(-8deg);
+    -moz-transform: rotate(-8deg);    
+    margin: 20px;
 }
-.thelabel {
-    font-size: 12px;
-    color: #999999;
-    text-shadow: 0 1px 2px #EFEFEF;
-}
-.kai {
-    width: 128px;
-    height: 128px;
-    box-shadow: 0 -2px 4px #FFF;
+
+
+.follow {
+    float: left;
+    margin: 20px;
 }
