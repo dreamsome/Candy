@@ -15,7 +15,7 @@ body {
 }
 
 .lean {
-    margin: 0;
+    margin: 0 auto;
     text-align:center;
     width: 95%;
     -webkit-transform: rotate(2deg);
@@ -41,6 +41,7 @@ a { color: #E01B6A; text-decoration: none; }
 a:hover { text-decoration: none;color:#E01B6A;}
 
 img {
+
     mask-image: url("display/shadow.png");
     -webkit-mask-image: url("display/shadow.png");
     -moz-mask-image: url("display/shadow.png");
