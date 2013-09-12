@@ -4,17 +4,20 @@
 }
 
 ul {
-    margin: 20px;
-    list-style-type: square;
+    margin: 20px;	
+}
+
+li {
+    margin: 10px;	
 }
 
 html {
-	display:table;
-	height:100%;
-	width:100%;
+    display:table;
+    height:100%;
+    width:100%;
 }
 body {
-    font: normal 13px/16px "Trebuchet MS", sans-seif;    
+    font: normal 13px/16px "Trebuchet MS", sans-seif;
     background: #444;
     background-Image: url("Image/cloth.png");
     width: 100%;
@@ -37,7 +40,7 @@ body {
     font-weight: bold;
     font-size: 40px;
     line-height: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .bio h2 {
@@ -122,7 +125,6 @@ img:hover {opacity:0.8; }
     font-family:'Knewave', fantasy;
     text-transform: uppercase;
     line-height: 100px;
-  
 }
 
 
