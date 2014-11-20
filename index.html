@@ -9,12 +9,12 @@
   <style>
 
   body {
-    margin: 30px auto;
+    margin: 50px auto;
     padding-left: 30px;
-    width: 850px;
-    font-family: Verdana;
+    width: 1000px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     line-height: 180%;
-    font-size:12px;
+    font-size:14px;
     background: white;
     color: #333;
   }
@@ -22,15 +22,14 @@
   #main {
     width: 600px;
     float: left;
+    margin-left:50px;
+    margin-bottom:50px;
+
   }
 
   #sidebar {
-    float:right; 
-    width:200px; 
-    margin-left:30px; 
-    margin-top:20px;
-    background: #eee;
-    padding: 10px;
+    float:left; 
+    width:150px; 
   }
 
   a {
@@ -42,14 +41,12 @@
     text-decoration: underline;
   }
 
-  h1 {
-    line-height: 100%;
-    font-family: Lustria, 'Times New Roman', Times, serif;
-    font-size:40px;
+  h1,h2, h3 {
+    line-height: 110%;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 500;
   }
-  h2, h3 {
-    font-family: Trebuchet MS;
-  }
+  h1 {font-size: 38px;}
 
   h2 {
    background: rgb(224, 222, 241);
@@ -61,25 +58,43 @@
  }
 
  .date {
-  color:#999;
+  color:#999;float: right;
  }
  </style>
 </head>
 <body>
 
-
-
+<h1>Yichao Cheng</h1>
+<hr>
+<div id="sidebar">
+ <p style="text-align:center;"><img src="./photo/cyc.jpg"></p>
+</div>
 
  <div id="main">
 
-  <h1>Yichao Cheng</h1>
+
+  <p><b>Yichao Cheng</b>, student | <a href="mail:onesuperclark@gmail.com">Email</a> | <a href="https://github.com/onesuper">Github</a></p>
+
+  <h2>Stuff</h2>
+
+  <ul>
+    <li><a href="">Olive</a></li>
+    <li><a href="http://vivid.chengychao.info/">The Vivid Schemer</a></li>
+    <li><a href="http://blog.chengyichao.info/weakpoint">WeakPoint</a></li>
+    <li><a href="http://dreamsome.org/">Dreamsome</a></li>
+    <li><a href="http://www.amazon.cn/%E5%97%A8%E7%BF%BBC%E8%AF%AD%E8%A8%80-%E6%A0%BC%E9%87%8C%E8%8F%B2%E6%80%9D/dp/B00FG1RW6I">Head First C in Chinese</a>
+    </li>
+    <li><a href="http://www.amazon.cn/%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%B9%B6%E8%A1%8C%E5%A4%84%E7%90%86%E5%99%A8%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98-%E6%9F%AF%E5%85%8B/dp/B00HFID4QW">CUDA book in Chinese</a> 
+    </li>
+  </ul>
 
 
-  <h2>Publications</h2>
+
+  <h2>Papers</h2>
 
   <ol>
-    <li><a href="./papers/understanding-simd-efficiency.pdf">Understanding the SIMD Efficiency of Graph Traversal on GPU</a>, Yichao Cheng, Hong An, Zhitao Chen, Feng Li, Zhaohui Wang, Xia Jiang and Yi Peng. 
-      <a href="http://action.dlmu.edu.cn/ica3pp2014/"><i>14th International Conference on Algorithms and Architectures for Parallel Processing (ICA3PP)</i></a>, DaLian, China, August 2014. <a href="./talk/ica3pp-presentation.pptx">[slides]</a>
+    <li>Understanding the SIMD Efficiency of Graph Traversal on GPU, Yichao Cheng, Hong An, Zhitao Chen, Feng Li, Zhaohui Wang, Xia Jiang and Yi Peng. 
+      <a href="http://action.dlmu.edu.cn/ica3pp2014/"><i>14th International Conference on Algorithms and Architectures for Parallel Processing (ICA3PP)</i></a>, DaLian, China, August 2014. <a href="./talk/ica3pp-presentation.pptx">[ <a href="./papers/understanding-simd-efficiency.pdf">.pdf</a> | slides ]</a>
     </li>
 
     <li>A Criticality-aware DVFS Runtime Utility for Optimizing Power Efficiency of Multithreaded Applications, Haibo Zhang, Hong An, Feng Li, Songtao He, Yichao Cheng and Zhitao Chen. <a href="http://ft.ornl.gov/~dol/workshops/hppac14/"><i>10th Workshop on High-Performance, Power-Aware Computing (HPPAC)</i></a>, Phoenix, USA, May 2014.</li>
@@ -87,55 +102,30 @@
 
 
 
-  <h2>Translated Books</h2>
-  <ol>
-    <li><strong>Head First C</strong> - O’Reilly Media
-      <br>C language basics, pointers and pointer arithmetic, dynamic memory management, etc
-      <br><a href="http://www.amazon.cn/%E5%97%A8%E7%BF%BBC%E8%AF%AD%E8%A8%80-%E6%A0%BC%E9%87%8C%E8%8F%B2%E6%80%9D/dp/B00FG1RW6I">Amazon.cn</a> (4.9 star)
-    </li>
-    <li><strong>Programming Massively Parallel Processors</strong>, Second Edition - NVIDIA
-      <br>Basic concepts of parallel programming and GPU architecture (Translated four chapters)
-      <br><a href="http://www.amazon.cn/%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%B9%B6%E8%A1%8C%E5%A4%84%E7%90%86%E5%99%A8%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98-%E6%9F%AF%E5%85%8B/dp/B00HFID4QW">Amazon.cn</a> 
-    </li>
-  </ol>
-
-
 
   <h2>Experience</h2>
 
   <ul>
-    <li><strong>Intern</strong> at Synopsys
-      <div class="date">Summer 2014</div>
+    <li><strong>Intern</strong> at Synopsys<span class="date">Summer 2014</span><br>
       Working on the project title "Deterministic Replay of Multi-threaded Program".
     </li>
 
 
 
     <li>
-      <strong>Competition Mentor</strong>
-      <div class="date">Spring 2014</div>
+      <strong>Competition Mentor</strong> <span class="date">Spring 2014</span><br>
       Trained the undergraduates in USTC to participate <a href="http://www.hpcadvisorycouncil.com/events/2014/isc14-student-cluster-competition/">Student Cluster Competition 2014</a>
-      <ul>
-       <li>Help undergraduates optimize several scientific applications.</li>
-       <li>In charge of the final presentation of system and optimizing technologies.</li>
-     </ul>
    </li>
 
 
 
    <li>
-     <strong>Teaching Assistant</strong>
-     <div class="date">Fall 2013</div>
+     <strong>Teaching Assistant</strong> <span class="date">Fall 2013</span><br>
      Teaching <a href="http://acsa.ustc.edu.cn/ics/">Introduction to Computing Systems</a>
-     <ul>
-       <li>Designed the <a href="http://acsa.ustc.edu.cn/ics/homeworks.html">labs and discussion sessions</a> in an innovative way.</li>
-       <li>Used metaphors and visualization techniques to help students understand basic concepts.</li>
-     </ul>
    </li>
 
 
-   <li><strong>Intern</strong> at Alipay
-    <div class="date">Summer 2011</div>
+   <li><strong>Intern</strong> at Alipay <span class="date">Summer 2011</span><br>
     Helped to develop a system for monitoring transaction trend for business partners.
   </li>
 </ul>
@@ -143,64 +133,35 @@
 
 <h2>Education</h2>
 
-University of Science and Technology of China (USTC), Hefei, China
-
-<ul>
-  <li>M.S. Computer Architecture
+  <ul>
+  <li>USTC, Hefei, China<br>
     <div class="date">Fall 2012 - Spring 2015</div>
-    Thesis: Fast and scalable graph framework on GPGPU</li>
+    M.S. Computer Architecture<br>
+    Thesis: Fast and scalable graph framework on GPUs<br>
+    "GDC Technology" outstanding graduate student
+  </li>
   </ul>
 
-  Tongji University, Shanghai, China
+  
   <ul>
-    <li>B.S. Computer Science and Technology
+    <li>Tongji University, Shanghai, China<br>
       <div class="date">Fall 2008 - Spring 2012</div>
+      B.S. Computer Science and Technology
     </li>
   </ul>
 
 
-  <h2>Software</h2>
-  <ul>
-    <li><a href="http://vivid.chengychao.info/">The Vivid Schemer</a>: Interactive Scheme interpreter.</li>
-    <li><a href="http://blog.chengyichao.info/weakpoint">WeakPoint</a>: Create slides in a "weak" way.</li>
-    <li><a href="https://github.com/onesuper/blasteroid">Blasteroid</a>: shooting game written in C.</li>
-    <li><a href="https://github.com/onesuper/sworld">sworld</a>: "Small World" (my beloved board game) in command-line.</li>
-    <li><a href="http://chengyichao.info/visual-graph-traversal/">VGA</a>: Visual Graph Algorithms.</li>
-    <li><a href="https://github.com/onesuper/myvfs">MyVFS</a>: A UNIX-like virtual file system.</li>
-  </ul>
-
-
-
-
-  <h2>Misc</h2>
-
-  <ul>
-    <li><a href="http://dreamsome.org/">Dreamsome</a>: Online comic book</li>
-    <li><a href="http://blog.chengyichao.info">Blog</a>: Some random thoughts</li>
-    <li>Funny story (aka novel): <a href="/childhood1">childhood1</a>, <a href="/childhood2">childhood2</a>, <a href="/some-kind-of-youth">Youth</a>, <a href="/golden-generation">Golden</a></li>
-
-    <li>Serious Talk: <a href="http://www.slideshare.net/onesuper/understanding-tomasolu-algorithm">Understanding Tomasulo Algorithm</a> </li>
-
-  </ul>
-
-  <br>
 
 
 </div>
 
 
-<div id="sidebar">
- <p style="text-align:center;"><img src="./photo/cyc.jpg" style="border: 1px solid black;"></p>
-
- <p>Currently I am a master student at <a href="http://acsa.ustc.edu.cn">ACSA</a> Research Group</p>
-
- <p><a href="mail:onesuperclark@gmail.com">Email Me</a></p>
-
-</div>
 
 
 <div style="clear:both;"></div>
-<p style="color:#999; text-align: center;"><i>Beautifully Advance.</i></p>
+<hr>
+
+<p style="color:#999; text-align: center;"><i>2014</i></p>
 
 <script type="text/javascript">
 var _gaq = _gaq || [];
